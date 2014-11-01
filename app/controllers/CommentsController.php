@@ -37,7 +37,7 @@ class CommentsController extends \BaseController {
         $comment = new Comment();
 
         $comment->fill(Input::all());
-        $comment->post_id = Input::get('post_id');
+        $comment->post_id = $post->id;
 
         $comment->save();
 

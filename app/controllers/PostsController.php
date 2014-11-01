@@ -37,7 +37,7 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-        //Get the post from the database or die with an 404
+        //Get the post from the database or die with an error
         $post = new Post();
 
         //Fill object with all the POST arguments which are allowed in Models\Post->fillable
@@ -59,7 +59,7 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        //Find the post or die with an 404
+        //Find the post or die with an error
         $post = Post::findOrFail($id);
 
         //Show the page of a specific post
@@ -88,7 +88,7 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-        //Get the post from the database or die with an 404
+        //Get the post from the database or die with an error
         $post = Post::findOrFail($id);
 
         //Fill the databse object with new values given via POST (only the ones allowed in Post->fillable)

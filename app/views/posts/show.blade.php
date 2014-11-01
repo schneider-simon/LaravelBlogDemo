@@ -11,9 +11,27 @@
     </div>
 
     <hr/>
-    <a href="{{ route('posts.edit', array('id' => $post->id)) }}" class="btn btn-default">
-        Edit this post
-    </a>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            {{ Form::open(['method'=>'DELETE', 'route' => ['posts.destroy', $post->id]]) }}
+                {{ Form::submit('Delete this post', ['class' => 'btn btn-danger']) }}
+            {{ Form::close() }}
+        </div>
+
+        <div class="col-md-6">
+            <a href="{{ route('posts.edit', array('id' => $post->id)) }}" class="btn btn-primary">
+                Edit this post
+            </a>
+        </div>
+
+
+
+
+    </div>
+
+
 
     <hr/>
     <h3>Comments <span class="badge">{{ $post->comments->count() }}</span></h3>

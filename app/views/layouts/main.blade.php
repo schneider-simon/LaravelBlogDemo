@@ -7,7 +7,7 @@
         <title>@yield('title')</title>
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://bootswatch.com/journal/bootstrap.min.css" rel="stylesheet">
+        <link href="http://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -16,7 +16,7 @@
             <!-- Area for error and success messages -->
             <div class="flashmessages">
                 @if ( Session::get('message') ) <div class="alert alert-success">{{ Session::get('message') }}</div> @endif
-                @if ( Session::get('error') ) <div class="alert alert-warning">{{ Session::get('error') }}</div> @endif
+                @if ( Session::get('error') ) <div class="alert alert-danger">{{ Session::get('error') }}</div> @endif
             </div>
             <!-- -->
 
