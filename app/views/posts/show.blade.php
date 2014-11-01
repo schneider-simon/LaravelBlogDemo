@@ -15,4 +15,20 @@
         Edit this post
     </a>
 
+    <hr/>
+    <h3>Comments <span class="badge">{{ $post->comments->count() }}</span></h3>
+
+    <!-- include posts addcomment here -->
+    @include('posts.addcomment')
+
+    <hr/>
+    <ul class="list-group comments">
+    @foreach($post->comments as $comment)
+        <li class="list-group-item">
+            <h4>{{ $comment->title }}</h4>
+            <b>{{ $comment->email }}: </b> {{ $comment->content }}
+        </li>
+    @endforeach
+    </ul>
+
 @endsection

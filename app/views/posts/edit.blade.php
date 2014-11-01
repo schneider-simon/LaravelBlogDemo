@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Create a new post
+Edit post {{ $post->title }}
 @endsection
 
 @section('content')

@@ -10,8 +10,10 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-
+        //Gett all posts from the database
 		$posts = Post::all();
+
+        //Show the list with all posts
         return View::make('posts.index', array('posts' => $posts));
 	}
 
@@ -23,6 +25,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
+        //Show the form for create a new post
         return View::make('posts.create');
 	}
 
@@ -34,12 +37,16 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
+        //Get the post from the database or die with an 404
         $post = new Post();
-        $post->title = Input::get('title');
-        $post->content = Input::get('content');
 
+        //Fill object with all the POST arguments which are allowed in Models\Post->fillable
+        $post->fill(Input::all());
+
+        //Save the object into the database
         $post->save();
 
+        //Redirect to the post page with a success message
         return Redirect::action('PostsController@show', array('id' => $post->id))->withMessage('Post has been saved.');
 	}
 
@@ -52,7 +59,10 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
+        //Find the post or die with an 404
         $post = Post::findOrFail($id);
+
+        //Show the page of a specific post
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -78,13 +88,14 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
+        //Get the post from the database or die with an 404
         $post = Post::findOrFail($id);
 
-        $post->title = Input::content('title');
-        $post->content = Input::content('content');
-
+        //Fill the databse object with new values given via POST (only the ones allowed in Post->fillable)
+        $post->fill(Input::all());
         $post->save();
 
+        //Redirect to the post page with a success message
         return Redirect::action('PostsController@show', array('id' => $post->id))->withMessage('Post has been updated.');
 	}
 

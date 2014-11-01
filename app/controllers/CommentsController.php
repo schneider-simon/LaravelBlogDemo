@@ -32,7 +32,16 @@ class CommentsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $post = Post::findOrFail(Input::get('post_id'));
+
+        $comment = new Comment();
+
+        $comment->fill(Input::all());
+        $comment->post_id = Input::get('post_id');
+
+        $comment->save();
+
+        return Redirect::action('PostsController@show', array('id' => $post->id))->withMessage('Comment has been saved.');
 	}
 
 	/**
