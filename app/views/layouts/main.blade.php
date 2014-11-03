@@ -20,8 +20,6 @@
             </div>
             <!-- -->
 
-
-
             <!-- The content of the sections "title" and "content" are defined in the child template -->
             <h2>@yield('title')</h2>
 

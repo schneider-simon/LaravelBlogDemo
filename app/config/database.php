@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'epaper',
-			'username'  => 'epaper',
-			'password'  => 'epaper',
+			'database'  => 'epaper2',
+			'username'  => 'epaper2',
+			'password'  => 'epaper2',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
